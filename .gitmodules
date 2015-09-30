@@ -1,0 +1,3 @@
+[submodule "Config"]
+	path = Config
+	url = git@github.com:jspahrsummers/xcconfigs.git
