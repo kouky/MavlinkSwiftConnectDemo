@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		27785EFE1BBC14B900E1D097 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFC1BBC14B900E1D097 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27785EF91BBC14A700E1D097 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		27785EFB1BBC14B900E1D097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		27785EFC1BBC14B900E1D097 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		27785F021BBC14D400E1D097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
+		27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavlinkSwiftConnectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27B6CBE01BBC12BA004184A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27B6CBDA1BBC12BA004184A5 = {
+			isa = PBXGroup;
+			children = (
+				27B6CBE51BBC12BA004184A5 /* Sources */,
+				27EE57481BBC142C0057960D /* Resources */,
+				27B6CBE41BBC12BA004184A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27B6CBE41BBC12BA004184A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27B6CBE51BBC12BA004184A5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27785EF91BBC14A700E1D097 /* AppDelegate.swift */,
+			);
+			name = Sources;
+			path = MavlinkSwiftConnectDemo;
+			sourceTree = "<group>";
+		};
+		27EE57481BBC142C0057960D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27785F011BBC14D400E1D097 /* MainMenu.xib */,
+				27785EFB1BBC14B900E1D097 /* Assets.xcassets */,
+				27785EFC1BBC14B900E1D097 /* Info.plist */,
+			);
+			name = Resources;
+			path = MavlinkSwiftConnectDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27B6CBE21BBC12BA004184A5 /* MavlinkSwiftConnectDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27B6CBF01BBC12BA004184A5 /* Build configuration list for PBXNativeTarget "MavlinkSwiftConnectDemo" */;
+			buildPhases = (
+				27B6CBDF1BBC12BA004184A5 /* Sources */,
+				27B6CBE01BBC12BA004184A5 /* Frameworks */,
+				27B6CBE11BBC12BA004184A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MavlinkSwiftConnectDemo;
+			productName = MavlinkSwiftConnectDemo;
+			productReference = 27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27B6CBDB1BBC12BA004184A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Michael Koukoullis";
+				TargetAttributes = {
+					27B6CBE21BBC12BA004184A5 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 27B6CBDE1BBC12BA004184A5 /* Build configuration list for PBXProject "MavlinkSwiftConnectDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27B6CBDA1BBC12BA004184A5;
+			productRefGroup = 27B6CBE41BBC12BA004184A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27B6CBE21BBC12BA004184A5 /* MavlinkSwiftConnectDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27B6CBE11BBC12BA004184A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27785EFE1BBC14B900E1D097 /* Info.plist in Resources */,
+				27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */,
+				27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27B6CBDF1BBC12BA004184A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		27785F011BBC14D400E1D097 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27785F021BBC14D400E1D097 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27B6CBEE1BBC12BA004184A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27B6CBEF1BBC12BA004184A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27B6CBF11BBC12BA004184A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kouky.MavlinkSwiftConnectDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27B6CBF21BBC12BA004184A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kouky.MavlinkSwiftConnectDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27B6CBDE1BBC12BA004184A5 /* Build configuration list for PBXProject "MavlinkSwiftConnectDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27B6CBEE1BBC12BA004184A5 /* Debug */,
+				27B6CBEF1BBC12BA004184A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27B6CBF01BBC12BA004184A5 /* Build configuration list for PBXNativeTarget "MavlinkSwiftConnectDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27B6CBF11BBC12BA004184A5 /* Debug */,
+				27B6CBF21BBC12BA004184A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27B6CBDB1BBC12BA004184A5 /* Project object */;
+}
