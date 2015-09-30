@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		27785EFE1BBC14B900E1D097 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFC1BBC14B900E1D097 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
+		27785F111BBC1ADE00E1D097 /* Mac-Application.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */; settings = {ASSET_TAGS = (); }; };
+		27785F151BBC1AF700E1D097 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F121BBC1AF700E1D097 /* Debug.xcconfig */; settings = {ASSET_TAGS = (); }; };
+		27785F171BBC1AF700E1D097 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F141BBC1AF700E1D097 /* Release.xcconfig */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,9 @@
 		27785EFB1BBC14B900E1D097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		27785EFC1BBC14B900E1D097 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		27785F021BBC14D400E1D097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
+		27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Mac-Application.xcconfig"; path = "Config/Mac OS X/Mac-Application.xcconfig"; sourceTree = "<group>"; };
+		27785F121BBC1AF700E1D097 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Config/Base/Configurations/Debug.xcconfig; sourceTree = "<group>"; };
+		27785F141BBC1AF700E1D097 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Config/Base/Configurations/Release.xcconfig; sourceTree = "<group>"; };
 		27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavlinkSwiftConnectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,11 +37,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27785F0F1BBC1AC600E1D097 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				27785F121BBC1AF700E1D097 /* Debug.xcconfig */,
+				27785F141BBC1AF700E1D097 /* Release.xcconfig */,
+				27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		27B6CBDA1BBC12BA004184A5 = {
 			isa = PBXGroup;
 			children = (
 				27B6CBE51BBC12BA004184A5 /* Sources */,
 				27EE57481BBC142C0057960D /* Resources */,
+				27785F0F1BBC1AC600E1D097 /* Config */,
 				27B6CBE41BBC12BA004184A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,8 +143,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27785EFE1BBC14B900E1D097 /* Info.plist in Resources */,
+				27785F151BBC1AF700E1D097 /* Debug.xcconfig in Resources */,
 				27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */,
+				27785F171BBC1AF700E1D097 /* Release.xcconfig in Resources */,
+				27785F111BBC1ADE00E1D097 /* Mac-Application.xcconfig in Resources */,
 				27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +178,7 @@
 /* Begin XCBuildConfiguration section */
 		27B6CBEE1BBC12BA004184A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -204,6 +223,7 @@
 		};
 		27B6CBEF1BBC12BA004184A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -240,6 +260,7 @@
 		};
 		27B6CBF11BBC12BA004184A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27785F121BBC1AF700E1D097 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -254,6 +275,7 @@
 		};
 		27B6CBF21BBC12BA004184A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27785F141BBC1AF700E1D097 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
