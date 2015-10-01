@@ -4,3 +4,6 @@
 [submodule "Carthage/Checkouts/ORSSerialPort"]
 	path = Carthage/Checkouts/ORSSerialPort
 	url = https://github.com/armadsen/ORSSerialPort.git
+[submodule "Vendor/Mavlink"]
+	path = Vendor/Mavlink
+	url = git@github.com:mavlink/c_library.git
