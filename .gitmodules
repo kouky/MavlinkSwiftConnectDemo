@@ -1,3 +1,6 @@
 [submodule "Config"]
 	path = Config
 	url = git@github.com:jspahrsummers/xcconfigs.git
+[submodule "Carthage/Checkouts/ORSSerialPort"]
+	path = Carthage/Checkouts/ORSSerialPort
+	url = https://github.com/armadsen/ORSSerialPort.git
