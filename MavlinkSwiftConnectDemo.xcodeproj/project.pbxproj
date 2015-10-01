@@ -10,10 +10,34 @@
 		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
-		27785F111BBC1ADE00E1D097 /* Mac-Application.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */; settings = {ASSET_TAGS = (); }; };
-		27785F151BBC1AF700E1D097 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F121BBC1AF700E1D097 /* Debug.xcconfig */; settings = {ASSET_TAGS = (); }; };
-		27785F171BBC1AF700E1D097 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 27785F141BBC1AF700E1D097 /* Release.xcconfig */; settings = {ASSET_TAGS = (); }; };
+		27AD8A2C1BBD515F00BC7555 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; };
+		27AD8A2D1BBD515F00BC7555 /* ORSSerial.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27AD8A341BBD551300BC7555 /* ORSSerial.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		27AD8A2E1BBD515F00BC7555 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27AD8A2D1BBD515F00BC7555 /* ORSSerial.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27AD8A2F1BBD527A00BC7555 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				27AD8A341BBD551300BC7555 /* ORSSerial.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		27785EF91BBC14A700E1D097 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -23,6 +47,8 @@
 		27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Mac-Application.xcconfig"; path = "Config/Mac OS X/Mac-Application.xcconfig"; sourceTree = "<group>"; };
 		27785F121BBC1AF700E1D097 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Config/Base/Configurations/Debug.xcconfig; sourceTree = "<group>"; };
 		27785F141BBC1AF700E1D097 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Config/Base/Configurations/Release.xcconfig; sourceTree = "<group>"; };
+		27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORSSerial.framework; path = Carthage/Build/Mac/ORSSerial.framework; sourceTree = "<group>"; };
+		27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ORSSerial.framework.dSYM; path = Carthage/Build/Mac/ORSSerial.framework.dSYM; sourceTree = "<group>"; };
 		27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavlinkSwiftConnectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27AD8A2C1BBD515F00BC7555 /* ORSSerial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,12 +74,22 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		27AD8A321BBD542B00BC7555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */,
+				27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27B6CBDA1BBC12BA004184A5 = {
 			isa = PBXGroup;
 			children = (
 				27B6CBE51BBC12BA004184A5 /* Sources */,
 				27EE57481BBC142C0057960D /* Resources */,
 				27785F0F1BBC1AC600E1D097 /* Config */,
+				27AD8A321BBD542B00BC7555 /* Frameworks */,
 				27B6CBE41BBC12BA004184A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +132,8 @@
 				27B6CBDF1BBC12BA004184A5 /* Sources */,
 				27B6CBE01BBC12BA004184A5 /* Frameworks */,
 				27B6CBE11BBC12BA004184A5 /* Resources */,
+				27AD8A2E1BBD515F00BC7555 /* Embed Frameworks */,
+				27AD8A2F1BBD527A00BC7555 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -143,10 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27785F151BBC1AF700E1D097 /* Debug.xcconfig in Resources */,
 				27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */,
-				27785F171BBC1AF700E1D097 /* Release.xcconfig in Resources */,
-				27785F111BBC1ADE00E1D097 /* Mac-Application.xcconfig in Resources */,
 				27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +301,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kouky.MavlinkSwiftConnectDemo;
@@ -280,6 +320,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kouky.MavlinkSwiftConnectDemo;
