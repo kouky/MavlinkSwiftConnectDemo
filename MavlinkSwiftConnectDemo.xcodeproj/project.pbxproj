@@ -10,6 +10,7 @@
 		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
+		279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D1D671BC292C3003CB64E /* MavlinkController.swift */; settings = {ASSET_TAGS = (); }; };
 		27AD8A2C1BBD515F00BC7555 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; };
 		27AD8A2D1BBD515F00BC7555 /* ORSSerial.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27AD8A341BBD551300BC7555 /* ORSSerial.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */; };
@@ -47,6 +48,7 @@
 		27785F101BBC1ADE00E1D097 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Mac-Application.xcconfig"; path = "Config/Mac OS X/Mac-Application.xcconfig"; sourceTree = "<group>"; };
 		27785F121BBC1AF700E1D097 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Config/Base/Configurations/Debug.xcconfig; sourceTree = "<group>"; };
 		27785F141BBC1AF700E1D097 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Config/Base/Configurations/Release.xcconfig; sourceTree = "<group>"; };
+		279D1D671BC292C3003CB64E /* MavlinkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MavlinkController.swift; path = Sources/MavlinkController.swift; sourceTree = SOURCE_ROOT; };
 		27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORSSerial.framework; path = Carthage/Build/Mac/ORSSerial.framework; sourceTree = "<group>"; };
 		27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ORSSerial.framework.dSYM; path = Carthage/Build/Mac/ORSSerial.framework.dSYM; sourceTree = "<group>"; };
 		27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavlinkSwiftConnectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				27785EF91BBC14A700E1D097 /* AppDelegate.swift */,
+				279D1D671BC292C3003CB64E /* MavlinkController.swift */,
 			);
 			name = Sources;
 			path = MavlinkSwiftConnectDemo;
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */,
 				27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
