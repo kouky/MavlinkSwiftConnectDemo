@@ -22,6 +22,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     }
 	
     @IBOutlet weak var openCloseButton: NSButton!
+    @IBOutlet var receivedMessageTextView: NSTextView!
     
     override init() {
         super.init()
@@ -45,10 +46,16 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
                 port.close()
             }
             else {
+                // Clear the messages text view
+                self.receivedMessageTextView.textStorage?.mutableString.setString("")
+                
+                // Configure port prior to opening
     			port.baudRate = 57600
     			port.numberOfStopBits = 1
     			port.parity = .None
                 port.open()
+                
+                // Start a Mavlink session on the Pixhawk mini USB port
     			if let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) {
     				port.sendData(data)
     			}

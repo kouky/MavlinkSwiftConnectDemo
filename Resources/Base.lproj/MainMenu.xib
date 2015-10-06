@@ -14,6 +14,7 @@
         <customObject id="OX4-BP-jvf" customClass="MavlinkController" customModule="MavlinkSwiftConnectDemo" customModuleProvider="target">
             <connections>
                 <outlet property="openCloseButton" destination="O4Q-uv-ymn" id="aNf-k1-wsO"/>
+                <outlet property="receivedMessageTextView" destination="Yu9-WQ-abc" id="h2X-Ca-Bu4"/>
             </connections>
         </customObject>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MavlinkSwiftConnectDemo" customModuleProvider="target">
@@ -703,9 +704,9 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="OX4-BP-jvf" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GXw-hd-OiX" id="YPq-p9-7sM"/>
                             <binding destination="OX4-BP-jvf" name="selectedObject" keyPath="serialPort" previousBinding="YPq-p9-7sM" id="gGF-rw-Be2"/>
                             <binding destination="OX4-BP-jvf" name="content" keyPath="serialPortManager.availablePorts" id="GXw-hd-OiX"/>
+                            <binding destination="OX4-BP-jvf" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GXw-hd-OiX" id="YPq-p9-7sM"/>
                         </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-uv-ymn">
@@ -724,6 +725,40 @@
                             </binding>
                         </connections>
                     </button>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="llK-MN-QTw">
+                        <rect key="frame" x="12" y="289" width="456" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grL-Lp-f9A">
+                        <rect key="frame" x="20" y="20" width="440" height="251"/>
+                        <clipView key="contentView" ambiguous="YES" id="x19-3X-T7h">
+                            <rect key="frame" x="1" y="1" width="438" height="249"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Yu9-WQ-abc">
+                                    <rect key="frame" x="0.0" y="0.0" width="443" height="249"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="438" height="249"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="438" height="249"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="OaI-hQ-NZT">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="yrp-9e-SCj">
+                            <rect key="frame" x="423" y="1" width="16" height="249"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                 </subviews>
             </view>
         </window>
