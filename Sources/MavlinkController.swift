@@ -10,29 +10,29 @@ import Cocoa
 import ORSSerial
 
 class MavlinkController: NSObject, ORSSerialPortDelegate {
+
+    let serialPortManager = ORSSerialPortManager.sharedSerialPortManager()
 	
-	let serialPortManager = ORSSerialPortManager.sharedSerialPortManager()
+    var serialPort: ORSSerialPort? {
+        didSet {
+            oldValue?.close()
+            oldValue?.delegate = nil
+            serialPort?.delegate = self
+        }
+    }
 	
-	var serialPort: ORSSerialPort? {
-		didSet {
-			oldValue?.close()
-			oldValue?.delegate = nil
-			serialPort?.delegate = self
-		}
-	}
-	
-	@IBOutlet weak var openCloseButton: NSButton!
-	
-	// MARK: Actions
-	
-	@IBAction func openOrClosePort(sender: AnyObject) {
-		print("Button press")
-	}
-	
-	// MARK: ORSSerialPortDelegate Protocol
-	
-	func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
-		self.serialPort = nil
-		self.openCloseButton.title = "Open"
-	}
+    @IBOutlet weak var openCloseButton: NSButton!
+
+    // MARK: Actions
+
+    @IBAction func openOrClosePort(sender: AnyObject) {
+        print("Button press")
+    }
+
+    // MARK: ORSSerialPortDelegate Protocol
+
+    func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
+        self.serialPort = nil
+        self.openCloseButton.title = "Open"
+    }
 }
