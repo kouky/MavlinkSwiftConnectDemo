@@ -12,4 +12,12 @@ import ORSSerial
 class MavlinkController: NSObject {
 	
 	let serialPortManager = ORSSerialPortManager.sharedSerialPortManager()
+	
+	@IBOutlet weak var openCloseButton: NSButton!
+	
+	// MARK: Actions
+	
+	@IBAction func openOrClosePort(sender: AnyObject) {
+		print("Button press")
+	}
 }

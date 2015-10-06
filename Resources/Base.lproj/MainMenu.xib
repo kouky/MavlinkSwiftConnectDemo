@@ -11,7 +11,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="OX4-BP-jvf" customClass="MavlinkController" customModule="MavlinkSwiftConnectDemo" customModuleProvider="target"/>
+        <customObject id="OX4-BP-jvf" customClass="MavlinkController" customModule="MavlinkSwiftConnectDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="openCloseButton" destination="O4Q-uv-ymn" id="aNf-k1-wsO"/>
+            </connections>
+        </customObject>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MavlinkSwiftConnectDemo" customModuleProvider="target">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -678,7 +682,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-K5-qNp">
-                        <rect key="frame" x="93" y="323" width="69" height="17"/>
+                        <rect key="frame" x="93" y="322" width="69" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Serial Port" id="nHI-zW-jgR">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -703,6 +707,16 @@
                             <binding destination="OX4-BP-jvf" name="content" keyPath="serialPortManager.availablePorts" id="GXw-hd-OiX"/>
                         </connections>
                     </popUpButton>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-uv-ymn">
+                        <rect key="frame" x="300" y="312" width="74" height="32"/>
+                        <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="grv-q1-psv">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openOrClosePort:" target="OX4-BP-jvf" id="gwQ-Dy-SCi"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
