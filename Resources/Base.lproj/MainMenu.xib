@@ -699,8 +699,8 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
+                            <binding destination="OX4-BP-jvf" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GXw-hd-OiX" id="YPq-p9-7sM"/>
                             <binding destination="OX4-BP-jvf" name="content" keyPath="serialPortManager.availablePorts" id="GXw-hd-OiX"/>
-                            <binding destination="oXm-Kc-xGU" name="contentValues" keyPath="values.serialPortManager.availablePorts.name" previousBinding="GXw-hd-OiX" id="uqb-tY-MKU"/>
                         </connections>
                     </popUpButton>
                 </subviews>
