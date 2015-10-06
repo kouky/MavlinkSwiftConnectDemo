@@ -704,6 +704,7 @@
                         </popUpButtonCell>
                         <connections>
                             <binding destination="OX4-BP-jvf" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GXw-hd-OiX" id="YPq-p9-7sM"/>
+                            <binding destination="OX4-BP-jvf" name="selectedObject" keyPath="serialPort" previousBinding="YPq-p9-7sM" id="gGF-rw-Be2"/>
                             <binding destination="OX4-BP-jvf" name="content" keyPath="serialPortManager.availablePorts" id="GXw-hd-OiX"/>
                         </connections>
                     </popUpButton>
@@ -715,6 +716,12 @@
                         </buttonCell>
                         <connections>
                             <action selector="openOrClosePort:" target="OX4-BP-jvf" id="gwQ-Dy-SCi"/>
+                            <binding destination="OX4-BP-jvf" name="enabled" keyPath="serialPort" id="Ops-we-LNv">
+                                <dictionary key="options">
+                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </button>
                 </subviews>
