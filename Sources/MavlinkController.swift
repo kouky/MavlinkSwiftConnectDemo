@@ -8,6 +8,7 @@
 
 import Cocoa
 import ORSSerial
+import Mavlink
 
 class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCenterDelegate {
 
@@ -76,6 +77,25 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
         self.serialPort = nil
         self.openCloseButton.title = "Open"
+    }
+    
+    func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
+        var bytes = [UInt8](count: data.length, repeatedValue: 0)
+		data.getBytes(&bytes, length: data.length)
+        
+        for byte in bytes {
+            var message = mavlink_message_t()
+            var status = mavlink_status_t()
+            let channel = UInt8(mavlink_channel_t(MAVLINK_COMM_1.rawValue).rawValue)
+            if mavlink_parse_char(channel, byte, &message, &status) != 0 {
+    			self.receivedMessageTextView.textStorage?.mutableString.appendString("Message id \(message.msgid) received\n")
+    			self.receivedMessageTextView.needsDisplay = true
+            }
+        }
+    }
+    
+    func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
+        print("SerialPort \(serialPort.name) encountered an error: \(error)")
     }
     
     // MARK: - Notifications
