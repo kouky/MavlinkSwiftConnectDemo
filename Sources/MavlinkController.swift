@@ -23,6 +23,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     }
 	
     @IBOutlet weak var openCloseButton: NSButton!
+    @IBOutlet weak var clearTextViewButton: NSButton!
     @IBOutlet var receivedMessageTextView: NSTextView!
     
     override init() {
@@ -47,8 +48,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
                 port.close()
             }
             else {
-                // Clear the messages text view
-                self.receivedMessageTextView.textStorage?.mutableString.setString("")
+                self.clearTextView(self)
                 
                 // Configure port prior to opening
     			port.baudRate = 57600
@@ -62,6 +62,10 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     			}
             }
         }
+    }
+    
+    @IBAction func clearTextView(sender: AnyObject) {
+        self.receivedMessageTextView.textStorage?.mutableString.setString("")
     }
 
     // MARK: - ORSSerialPortDelegate Protocol
