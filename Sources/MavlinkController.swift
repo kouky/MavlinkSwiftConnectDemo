@@ -51,15 +51,15 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
                 self.clearTextView(self)
                 
                 // Configure port prior to opening
-    			port.baudRate = 57600
-    			port.numberOfStopBits = 1
-    			port.parity = .None
+                port.baudRate = 57600
+                port.numberOfStopBits = 1
+                port.parity = .None
                 port.open()
                 
                 // Start a Mavlink session on the Pixhawk mini USB port
-    			if let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) {
-    				port.sendData(data)
-    			}
+                if let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) {
+                	port.sendData(data)
+                }
             }
         }
     }
@@ -94,7 +94,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             if mavlink_parse_char(channel, byte, &message, &status) != 0 {
                 let messageDescription = self.descriptionForMavlinkMessage(message)
                 self.receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
-    			self.receivedMessageTextView.needsDisplay = true
+                self.receivedMessageTextView.needsDisplay = true
             }
         }
     }
@@ -109,8 +109,8 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
         var description: String
         switch message.msgid {
         case 0:
-			var heartbeat = mavlink_heartbeat_t()
-			mavlink_msg_heartbeat_decode(&message, &heartbeat);
+            var heartbeat = mavlink_heartbeat_t()
+            mavlink_msg_heartbeat_decode(&message, &heartbeat);
             description = "HEARTBEAT mavlink_version: \(heartbeat.mavlink_version)"
         case 1:
             var sys_status = mavlink_sys_status_t()
