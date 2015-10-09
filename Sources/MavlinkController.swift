@@ -25,6 +25,8 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     @IBOutlet weak var openCloseButton: NSButton!
     @IBOutlet weak var clearTextViewButton: NSButton!
     @IBOutlet var receivedMessageTextView: NSTextView!
+    @IBOutlet weak var usbRadioButton: NSButton!
+    @IBOutlet weak var telemetryRadioButton: NSButton!
     
     override init() {
         super.init()
@@ -66,6 +68,9 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     
     @IBAction func clearTextView(sender: AnyObject) {
         self.receivedMessageTextView.textStorage?.mutableString.setString("")
+    }
+    
+    @IBAction func radioButtonSelected(sender: AnyObject) {
     }
 
     // MARK: - ORSSerialPortDelegate Protocol
@@ -142,7 +147,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             description = "OTHER Message id \(message.msgid) received"
         }
         
-        return description + "\n"
+        return "\(description)\n"
     }
     
     // MARK: - Notifications
