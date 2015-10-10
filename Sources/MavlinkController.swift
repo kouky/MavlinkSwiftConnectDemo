@@ -12,6 +12,8 @@ import Mavlink
 
 class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCenterDelegate {
 
+    // MARK: Stored Properties
+    
     let serialPortManager = ORSSerialPortManager.sharedSerialPortManager()
 	
     var serialPort: ORSSerialPort? {
@@ -21,12 +23,16 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             serialPort?.delegate = self
         }
     }
+    
+    // MARK: IBOutlets
 	
     @IBOutlet weak var openCloseButton: NSButton!
-    @IBOutlet weak var clearTextViewButton: NSButton!
-    @IBOutlet var receivedMessageTextView: NSTextView!
     @IBOutlet weak var usbRadioButton: NSButton!
     @IBOutlet weak var telemetryRadioButton: NSButton!
+    @IBOutlet var receivedMessageTextView: NSTextView!
+    @IBOutlet weak var clearTextViewButton: NSButton!
+   
+    // MARK: Initializers
     
     override init() {
         super.init()
@@ -52,18 +58,30 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             else {
                 self.clearTextView(self)
                 
-                // Configure port prior to opening
                 port.baudRate = 57600
                 port.numberOfStopBits = 1
                 port.parity = .None
                 port.open()
                 
-                // Start a Mavlink session on the Pixhawk mini USB port
-                if let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) {
-                	port.sendData(data)
+                if self.usbRadioButton.state != 0 {
+                    self.startUsbMavlinkSession()
                 }
             }
         }
+    }
+    
+    func startUsbMavlinkSession() {
+        guard let port = self.serialPort where port.open else {
+            print("Serial port is not open")
+            return
+        }
+        
+        guard let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) else {
+            print("Cannot create mavlink USB start command")
+            return
+        }
+        
+        port.sendData(data)
     }
     
     @IBAction func clearTextView(sender: AnyObject) {
@@ -71,6 +89,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     }
     
     @IBAction func radioButtonSelected(sender: AnyObject) {
+        // No-op - required to make radio buttons behave as a group
     }
 
     // MARK: - ORSSerialPortDelegate Protocol
