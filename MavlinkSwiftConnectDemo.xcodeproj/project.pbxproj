@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
-		279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D1D671BC292C3003CB64E /* MavlinkController.swift */; settings = {ASSET_TAGS = (); }; };
+		2743453B1BEF27BB0056EE2E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2743453A1BEF27BB0056EE2E /* README.md */; };
+		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; };
+		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; };
+		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; };
+		279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D1D671BC292C3003CB64E /* MavlinkController.swift */; };
 		27AD8A2C1BBD515F00BC7555 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; };
 		27AD8A2D1BBD515F00BC7555 /* ORSSerial.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD8A2B1BBD515F00BC7555 /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27AD8A341BBD551300BC7555 /* ORSSerial.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27AD8A331BBD551300BC7555 /* ORSSerial.framework.dSYM */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2743453A1BEF27BB0056EE2E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		27785EF91BBC14A700E1D097 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		27785EFB1BBC14B900E1D097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		27785EFC1BBC14B900E1D097 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -107,6 +109,7 @@
 		27B6CBE51BBC12BA004184A5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2743453A1BEF27BB0056EE2E /* README.md */,
 				27785EF91BBC14A700E1D097 /* AppDelegate.swift */,
 				279D1D671BC292C3003CB64E /* MavlinkController.swift */,
 			);
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2743453B1BEF27BB0056EE2E /* README.md in Sources */,
 				279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */,
 				27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */,
 			);
