@@ -54,21 +54,19 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     // MARK: - Actions
 
     @IBAction func openOrClosePort(sender: AnyObject) {
-        if let port = serialPort {
-            if port.open {
-                port.close()
-            }
-            else {
-                self.clearTextView(self)
-                
-                port.baudRate = 57600
-                port.numberOfStopBits = 1
-                port.parity = .None
-                port.open()
-                
-                if self.usbRadioButton.state != 0 {
-                    self.startUsbMavlinkSession()
-                }
+        guard let port = serialPort else {
+            return
+        }
+        
+        if port.open {
+            port.close()
+        }
+        else {
+            self.clearTextView(self)
+            port.open()
+            
+            if self.usbRadioButton.state != 0 {
+                self.startUsbMavlinkSession()
             }
         }
     }
@@ -117,7 +115,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
         for byte in bytes {
             var message = mavlink_message_t()
             var status = mavlink_status_t()
-            let channel = UInt8(mavlink_channel_t(MAVLINK_COMM_1.rawValue).rawValue)
+            let channel = UInt8(MAVLINK_COMM_1.rawValue)
             if mavlink_parse_char(channel, byte, &message, &status) != 0 {
                 let messageDescription = self.descriptionForMavlinkMessage(message)
                 self.receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
