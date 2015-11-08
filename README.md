@@ -18,6 +18,12 @@ If you don't have the [Carthage](https://github.com/Carthage/Carthage) dependenc
 
 Build and run the demo using Xcode 7 or above.
 
+## Notes when using application with Pixhawk
+
+The sample project is only tested with an authentic 3DR Pixhawk running PX4 firmware.
+
+Communication with 3DR bluetooth and radio telemetry requires a connection to telemetry port 1.
+
 ## Contributions
 
 Pull requests are always welcome!
