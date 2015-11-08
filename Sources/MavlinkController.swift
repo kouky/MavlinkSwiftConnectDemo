@@ -21,6 +21,9 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             oldValue?.close()
             oldValue?.delegate = nil
             serialPort?.delegate = self
+            serialPort?.baudRate = 57600
+            serialPort?.numberOfStopBits = 1
+            serialPort?.parity = .None
         }
     }
     
