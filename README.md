@@ -1,5 +1,11 @@
 # MavlinkSwiftConnectDemo
 
+Demonstrates how to decode [MAVLink](http://qgroundcontrol.org/mavlink/start) messages using a Swift based Xcode project. This is of interest if you’re attempting to write your own ground control station software for the Mac (or iOS).
+
+![Screenshot](http://kouky.org/assets/mavlink-connect/mavlink-connect.png)
+
+For a more detailed discussion please refer to my blog post, *[Decoding MAVLink Messages with Swift](http://kouky.org/blog/2015/11/09/decoding-mavlink-messages-with-swift.html)*.
+
 ## Getting Started
 
 Follow these steps after cloning the repository to get the Mac app running.
