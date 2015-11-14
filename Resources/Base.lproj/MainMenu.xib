@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -679,14 +679,15 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="485" height="421"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <value key="minSize" type="size" width="480" height="360"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="485" height="421"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-K5-qNp">
-                        <rect key="frame" x="104" y="382" width="69" height="17"/>
+                        <rect key="frame" x="105" y="382" width="68" height="17"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Serial Port" id="nHI-zW-jgR">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -694,7 +695,8 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PeK-Ub-a1m">
-                        <rect key="frame" x="117" y="348" width="56" height="17"/>
+                        <rect key="frame" x="119" y="348" width="54" height="17"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pixhawk" id="hTq-ks-CWH">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -706,6 +708,7 @@
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="feR-Yy-Lva"/>
                         </constraints>
+                        <animations/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="3B4-UT-c5P">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -725,6 +728,7 @@
                     </popUpButton>
                     <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="llK-MN-QTw">
                         <rect key="frame" x="12" y="322" width="461" height="5"/>
+                        <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
@@ -738,6 +742,7 @@
                                 <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Yu9-WQ-abc">
                                     <rect key="frame" x="0.0" y="0.0" width="448" height="248"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="443" height="248"/>
                                     <size key="maxSize" width="463" height="10000000"/>
@@ -746,19 +751,24 @@
                                     <size key="maxSize" width="463" height="10000000"/>
                                 </textView>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="OaI-hQ-NZT">
+                        <animations/>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="OaI-hQ-NZT">
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
                         </scroller>
-                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="yrp-9e-SCj">
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="yrp-9e-SCj">
                             <rect key="frame" x="428" y="1" width="16" height="248"/>
                             <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-uv-ymn">
-                        <rect key="frame" x="309" y="373" width="74" height="32"/>
+                        <rect key="frame" x="309" y="373" width="73" height="32"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="grv-q1-psv">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -774,7 +784,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="anE-5B-6wr">
-                        <rect key="frame" x="398" y="13" width="73" height="32"/>
+                        <rect key="frame" x="399" y="13" width="72" height="32"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yln-RH-kZj">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -784,7 +795,8 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="XNh-bc-cGt">
-                        <rect key="frame" x="182" y="348" width="50" height="18"/>
+                        <rect key="frame" x="182" y="348" width="49" height="18"/>
+                        <animations/>
                         <buttonCell key="cell" type="radio" title="USB" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="sjb-IX-K6k">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -794,7 +806,8 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="PDj-ne-Uas">
-                        <rect key="frame" x="245" y="348" width="66" height="18"/>
+                        <rect key="frame" x="244" y="348" width="64" height="18"/>
+                        <animations/>
                         <buttonCell key="cell" type="radio" title="Telem1" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="WKI-Qq-lYw">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -827,6 +840,7 @@
                     <constraint firstItem="llK-MN-QTw" firstAttribute="top" secondItem="XNh-bc-cGt" secondAttribute="bottom" constant="24" id="xFb-Ga-c1r"/>
                     <constraint firstItem="O4Q-uv-ymn" firstAttribute="leading" secondItem="wSe-kH-lRb" secondAttribute="trailing" constant="12" id="xRy-Rf-rZt"/>
                 </constraints>
+                <animations/>
             </view>
             <point key="canvasLocation" x="187.5" y="341.5"/>
         </window>
@@ -839,6 +853,7 @@
         <view id="t9G-cC-kh6">
             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
+            <animations/>
         </view>
     </objects>
 </document>
