@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2743453B1BEF27BB0056EE2E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2743453A1BEF27BB0056EE2E /* README.md */; };
 		27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27785EF91BBC14A700E1D097 /* AppDelegate.swift */; };
 		27785EFD1BBC14B900E1D097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27785EFB1BBC14B900E1D097 /* Assets.xcassets */; };
 		27785F031BBC14D400E1D097 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27785F011BBC14D400E1D097 /* MainMenu.xib */; };
@@ -200,7 +199,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2743453B1BEF27BB0056EE2E /* README.md in Sources */,
 				279D1D681BC292C3003CB64E /* MavlinkController.swift in Sources */,
 				27785EFA1BBC14A700E1D097 /* AppDelegate.swift in Sources */,
 			);
