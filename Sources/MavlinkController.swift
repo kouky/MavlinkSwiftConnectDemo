@@ -10,7 +10,7 @@ import Cocoa
 import ORSSerial
 import Mavlink
 
-class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCenterDelegate {
+class MavlinkController: NSObject {
 
     // MARK: Stored Properties
     
@@ -95,39 +95,6 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
 
     // MARK: - ORSSerialPortDelegate Protocol
 
-    func serialPortWasOpened(serialPort: ORSSerialPort) {
-        openCloseButton.title = "Close"
-    }
-    
-    func serialPortWasClosed(serialPort: ORSSerialPort) {
-        openCloseButton.title = "Open"
-    }
-    
-    func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
-        self.serialPort = nil
-        self.openCloseButton.title = "Open"
-    }
-    
-    func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
-        var bytes = [UInt8](count: data.length, repeatedValue: 0)
-		data.getBytes(&bytes, length: data.length)
-        
-        for byte in bytes {
-            var message = mavlink_message_t()
-            var status = mavlink_status_t()
-            let channel = UInt8(MAVLINK_COMM_1.rawValue)
-            if mavlink_parse_char(channel, byte, &message, &status) != 0 {
-                let messageDescription = descriptionForMavlinkMessage(message)
-                receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
-                receivedMessageTextView.needsDisplay = true
-            }
-        }
-    }
-    
-    func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
-        print("SerialPort \(serialPort.name) encountered an error: \(error)")
-    }
-    
     // MARK: - Mavlink Message Decoding
     
     func descriptionForMavlinkMessage(var message: mavlink_message_t) -> String {
@@ -209,8 +176,45 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             unc.deliverNotification(userNote)
         }
     }
+}
+
+extension MavlinkController: ORSSerialPortDelegate {
     
-    // MARK: - NSUserNotifcationCenterDelegate
+    func serialPortWasOpened(serialPort: ORSSerialPort) {
+        openCloseButton.title = "Close"
+    }
+    
+    func serialPortWasClosed(serialPort: ORSSerialPort) {
+        openCloseButton.title = "Open"
+    }
+    
+    func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
+        self.serialPort = nil
+        self.openCloseButton.title = "Open"
+    }
+    
+    func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
+        var bytes = [UInt8](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes, length: data.length)
+        
+        for byte in bytes {
+            var message = mavlink_message_t()
+            var status = mavlink_status_t()
+            let channel = UInt8(MAVLINK_COMM_1.rawValue)
+            if mavlink_parse_char(channel, byte, &message, &status) != 0 {
+                let messageDescription = descriptionForMavlinkMessage(message)
+                receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
+                receivedMessageTextView.needsDisplay = true
+            }
+        }
+    }
+    
+    func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
+        print("SerialPort \(serialPort.name) encountered an error: \(error)")
+    }
+}
+
+extension MavlinkController: NSUserNotificationCenterDelegate {
     
     func userNotificationCenter(center: NSUserNotificationCenter, didDeliverNotification notification: NSUserNotification) {
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
