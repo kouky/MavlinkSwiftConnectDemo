@@ -62,11 +62,11 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             port.close()
         }
         else {
-            self.clearTextView(self)
+            clearTextView(self)
             port.open()
             
-            if self.usbRadioButton.state != 0 {
-                self.startUsbMavlinkSession()
+            if usbRadioButton.state != 0 {
+                startUsbMavlinkSession()
             }
         }
     }
@@ -96,11 +96,11 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
     // MARK: - ORSSerialPortDelegate Protocol
 
     func serialPortWasOpened(serialPort: ORSSerialPort) {
-        self.openCloseButton.title = "Close"
+        openCloseButton.title = "Close"
     }
     
     func serialPortWasClosed(serialPort: ORSSerialPort) {
-        self.openCloseButton.title = "Open"
+        openCloseButton.title = "Open"
     }
     
     func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
@@ -117,9 +117,9 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
             var status = mavlink_status_t()
             let channel = UInt8(MAVLINK_COMM_1.rawValue)
             if mavlink_parse_char(channel, byte, &message, &status) != 0 {
-                let messageDescription = self.descriptionForMavlinkMessage(message)
-                self.receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
-                self.receivedMessageTextView.needsDisplay = true
+                let messageDescription = descriptionForMavlinkMessage(message)
+                receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
+                receivedMessageTextView.needsDisplay = true
             }
         }
     }
@@ -176,7 +176,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
         if let userInfo = notification.userInfo {
             let connectedPorts = userInfo[ORSConnectedSerialPortsKey] as! [ORSSerialPort]
             print("Ports were connected: \(connectedPorts)")
-            self.postUserNotificationForConnectedPorts(connectedPorts)
+            postUserNotificationForConnectedPorts(connectedPorts)
         }
     }
     
@@ -184,7 +184,7 @@ class MavlinkController: NSObject, ORSSerialPortDelegate, NSUserNotificationCent
         if let userInfo = notification.userInfo {
             let disconnectedPorts: [ORSSerialPort] = userInfo[ORSDisconnectedSerialPortsKey] as! [ORSSerialPort]
             print("Ports were disconnected: \(disconnectedPorts)")
-            self.postUserNotificationForDisconnectedPorts(disconnectedPorts)
+            postUserNotificationForDisconnectedPorts(disconnectedPorts)
         }
     }
     
