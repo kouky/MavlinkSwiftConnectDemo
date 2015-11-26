@@ -71,7 +71,7 @@ class MavlinkController: NSObject {
         }
     }
     
-    func startUsbMavlinkSession() {
+    private func startUsbMavlinkSession() {
         guard let port = self.serialPort where port.open else {
             print("Serial port is not open")
             return
@@ -91,50 +91,6 @@ class MavlinkController: NSObject {
     
     @IBAction func radioButtonSelected(sender: AnyObject) {
         // No-op - required to make radio buttons behave as a group
-    }
-
-    // MARK: - ORSSerialPortDelegate Protocol
-
-    // MARK: - Mavlink Message Decoding
-    
-    func descriptionForMavlinkMessage(var message: mavlink_message_t) -> String {
-        var description: String
-        switch message.msgid {
-        case 0:
-            var heartbeat = mavlink_heartbeat_t()
-            mavlink_msg_heartbeat_decode(&message, &heartbeat);
-            description = "HEARTBEAT mavlink_version: \(heartbeat.mavlink_version)"
-        case 1:
-            var sys_status = mavlink_sys_status_t()
-            mavlink_msg_sys_status_decode(&message, &sys_status)
-            description = "SYS_STATUS comms drop rate: \(sys_status.drop_rate_comm)%"
-        case 30:
-            var attitude = mavlink_attitude_t()
-            mavlink_msg_attitude_decode(&message, &attitude)
-            description = "ATTITUDE roll: \(attitude.roll) pitch: \(attitude.pitch) yaw: \(attitude.yaw)"
-        case 32:
-            description = "LOCAL_POSITION_NED"
-        case 33:
-            description = "GLOBAL_POSITION_INT"
-        case 74:
-            var vfr_hud = mavlink_vfr_hud_t()
-            mavlink_msg_vfr_hud_decode(&message, &vfr_hud)
-            description = "VFR_HUD heading: \(vfr_hud.heading) degrees"
-        case 87:
-            description = "POSITION_TARGET_GLOBAL_INT:"
-        case 105:
-            var highres_imu = mavlink_highres_imu_t()
-            mavlink_msg_highres_imu_decode(&message, &highres_imu)
-            description = "HIGHRES_IMU Pressure: \(highres_imu.abs_pressure) millibar"
-        case 147:
-            var battery_status = mavlink_battery_status_t()
-            mavlink_msg_battery_status_decode(&message, &battery_status)
-            description = "BATTERY_STATUS current consumed: \(battery_status.current_consumed) mAh"
-        default:
-            description = "OTHER Message id \(message.msgid) received"
-        }
-        
-        return "\(description)\n"
     }
     
     // MARK: - Notifications
@@ -202,8 +158,7 @@ extension MavlinkController: ORSSerialPortDelegate {
             var status = mavlink_status_t()
             let channel = UInt8(MAVLINK_COMM_1.rawValue)
             if mavlink_parse_char(channel, byte, &message, &status) != 0 {
-                let messageDescription = descriptionForMavlinkMessage(message)
-                receivedMessageTextView.textStorage?.mutableString.appendString(messageDescription)
+                receivedMessageTextView.textStorage?.mutableString.appendString(message.description)
                 receivedMessageTextView.needsDisplay = true
             }
         }
@@ -225,5 +180,45 @@ extension MavlinkController: NSUserNotificationCenterDelegate {
     
     func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
         return true
+    }
+}
+
+extension mavlink_message_t: CustomStringConvertible {
+    public var description: String {
+        var message = self
+        switch msgid {
+        case 0:
+            var heartbeat = mavlink_heartbeat_t()
+            mavlink_msg_heartbeat_decode(&message, &heartbeat);
+            return "HEARTBEAT mavlink_version: \(heartbeat.mavlink_version)\n"
+        case 1:
+            var sys_status = mavlink_sys_status_t()
+            mavlink_msg_sys_status_decode(&message, &sys_status)
+            return "SYS_STATUS comms drop rate: \(sys_status.drop_rate_comm)%\n"
+        case 30:
+            var attitude = mavlink_attitude_t()
+            mavlink_msg_attitude_decode(&message, &attitude)
+            return "ATTITUDE roll: \(attitude.roll) pitch: \(attitude.pitch) yaw: \(attitude.yaw)\n"
+        case 32:
+            return "LOCAL_POSITION_NED\n"
+        case 33:
+            return "GLOBAL_POSITION_INT\n"
+        case 74:
+            var vfr_hud = mavlink_vfr_hud_t()
+            mavlink_msg_vfr_hud_decode(&message, &vfr_hud)
+            return "VFR_HUD heading: \(vfr_hud.heading) degrees\n"
+        case 87:
+            return "POSITION_TARGET_GLOBAL_INT\n"
+        case 105:
+            var highres_imu = mavlink_highres_imu_t()
+            mavlink_msg_highres_imu_decode(&message, &highres_imu)
+            return "HIGHRES_IMU Pressure: \(highres_imu.abs_pressure) millibar\n"
+        case 147:
+            var battery_status = mavlink_battery_status_t()
+            mavlink_msg_battery_status_decode(&message, &battery_status)
+            return "BATTERY_STATUS current consumed: \(battery_status.current_consumed) mAh\n"
+        default:
+            return "OTHER Message id \(message.msgid) received\n"
+        }
     }
 }
