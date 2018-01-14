@@ -14,16 +14,16 @@ class MavlinkController: NSObject {
 
     // MARK: Stored Properties
     
-    let serialPortManager = ORSSerialPortManager.sharedSerialPortManager()
+    @objc dynamic var serialPortManager: ORSSerialPortManager = ORSSerialPortManager.shared()
 	
-    var serialPort: ORSSerialPort? {
+    @objc dynamic var serialPort: ORSSerialPort? {
         didSet {
             oldValue?.close()
             oldValue?.delegate = nil
             serialPort?.delegate = self
             serialPort?.baudRate = 57600
             serialPort?.numberOfStopBits = 1
-            serialPort?.parity = .None
+            serialPort?.parity = .none
         }
     }
     
@@ -40,15 +40,22 @@ class MavlinkController: NSObject {
     override init() {
         super.init()
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: #selector(MavlinkController.serialPortsWereConnected(_:)), name: ORSSerialPortsWereConnectedNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(MavlinkController.serialPortsWereDisconnected(_:)), name: ORSSerialPortsWereDisconnectedNotification, object: nil)
+        let notificationCenter = NotificationCenter.default
         
-        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+        notificationCenter.addObserver(self,
+                                       selector: #selector(MavlinkController.serialPortsWereConnected(notification:)),
+                                       name: NSNotification.Name.ORSSerialPortsWereConnected,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(MavlinkController.serialPortsWereDisconnected(notification:)),
+                                       name: NSNotification.Name.ORSSerialPortsWereDisconnected,
+                                       object: nil)
+        
+        NSUserNotificationCenter.default.delegate = self
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Actions
@@ -58,31 +65,31 @@ class MavlinkController: NSObject {
             return
         }
         
-        if port.open {
+        if port.isOpen {
             port.close()
         }
         else {
-            clearTextView(self)
+            clearTextView(sender: self)
             port.open()
             
-            if usbRadioButton.state != 0 {
+            if usbRadioButton.state != NSControl.StateValue.off {
                 startUsbMavlinkSession()
             }
         }
     }
     
     private func startUsbMavlinkSession() {
-        guard let port = self.serialPort where port.open else {
+        guard let port = self.serialPort, port.isOpen else {
             print("Serial port is not open")
             return
         }
         
-        guard let data = "mavlink start -d /dev/ttyACM0\n".dataUsingEncoding(NSUTF32LittleEndianStringEncoding) else {
+        guard let data = "mavlink start -d /dev/ttyACM0\n".data(using: String.Encoding.utf32LittleEndian) else {
             print("Cannot create mavlink USB start command")
             return
         }
         
-        port.sendData(data)
+        port.send(data)
     }
     
     @IBAction func clearTextView(sender: AnyObject) {
@@ -95,90 +102,92 @@ class MavlinkController: NSObject {
     
     // MARK: - Notifications
     
-    func serialPortsWereConnected(notification: NSNotification) {
+    @objc func serialPortsWereConnected(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let connectedPorts = userInfo[ORSConnectedSerialPortsKey] as! [ORSSerialPort]
             print("Ports were connected: \(connectedPorts)")
-            postUserNotificationForConnectedPorts(connectedPorts)
+            postUserNotificationForConnectedPorts(connectedPorts: connectedPorts)
         }
     }
     
-    func serialPortsWereDisconnected(notification: NSNotification) {
+    @objc func serialPortsWereDisconnected(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let disconnectedPorts: [ORSSerialPort] = userInfo[ORSDisconnectedSerialPortsKey] as! [ORSSerialPort]
             print("Ports were disconnected: \(disconnectedPorts)")
-            postUserNotificationForDisconnectedPorts(disconnectedPorts)
+            postUserNotificationForDisconnectedPorts(disconnectedPorts: disconnectedPorts)
         }
     }
     
     func postUserNotificationForConnectedPorts(connectedPorts: [ORSSerialPort]) {
-        let unc = NSUserNotificationCenter.defaultUserNotificationCenter()
+        let unc = NSUserNotificationCenter.default
         for port in connectedPorts {
             let userNote = NSUserNotification()
             userNote.title = NSLocalizedString("Serial Port Connected", comment: "Serial Port Connected")
             userNote.informativeText = "Serial Port \(port.name) was connected to your Mac."
             userNote.soundName = nil;
-            unc.deliverNotification(userNote)
+            unc.deliver(userNote)
         }
     }
     
     func postUserNotificationForDisconnectedPorts(disconnectedPorts: [ORSSerialPort]) {
-        let unc = NSUserNotificationCenter.defaultUserNotificationCenter()
+        let unc = NSUserNotificationCenter.default
         for port in disconnectedPorts {
             let userNote = NSUserNotification()
             userNote.title = NSLocalizedString("Serial Port Disconnected", comment: "Serial Port Disconnected")
             userNote.informativeText = "Serial Port \(port.name) was disconnected from your Mac."
             userNote.soundName = nil;
-            unc.deliverNotification(userNote)
+            unc.deliver(userNote)
         }
     }
 }
 
 extension MavlinkController: ORSSerialPortDelegate {
     
-    func serialPortWasOpened(serialPort: ORSSerialPort) {
+    func serialPortWasOpened(_ serialPort: ORSSerialPort) {
         openCloseButton.title = "Close"
     }
     
-    func serialPortWasClosed(serialPort: ORSSerialPort) {
+    func serialPortWasClosed(_ serialPort: ORSSerialPort) {
         openCloseButton.title = "Open"
     }
-    
-    func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
+
+    func serialPortWasRemoved(fromSystem serialPort: ORSSerialPort) {
         self.serialPort = nil
         self.openCloseButton.title = "Open"
     }
     
-    func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
-        var bytes = [UInt8](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes, length: data.length)
+    func serialPort(_ serialPort: ORSSerialPort, didReceive data: Data) {
+        let bytes: UnsafeMutablePointer<UInt8> = UnsafeMutablePointer.allocate(capacity: data.count)
+        data.copyBytes(to: bytes, count: data.count)
         
-        for byte in bytes {
+        for index in 0..<data.count {
+            let byte: UInt8 = (bytes + index).pointee
             var message = mavlink_message_t()
             var status = mavlink_status_t()
             let channel = UInt8(MAVLINK_COMM_1.rawValue)
             if mavlink_parse_char(channel, byte, &message, &status) != 0 {
-                receivedMessageTextView.textStorage?.mutableString.appendString(message.description)
+                receivedMessageTextView.textStorage?.mutableString.append(message.description)
                 receivedMessageTextView.needsDisplay = true
             }
         }
+        
+        bytes.deallocate(capacity: data.count)
     }
     
-    func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
+    func serialPort(_ serialPort: ORSSerialPort, didEncounterError error: Error) {
         print("SerialPort \(serialPort.name) encountered an error: \(error)")
     }
 }
 
 extension MavlinkController: NSUserNotificationCenterDelegate {
     
-    func userNotificationCenter(center: NSUserNotificationCenter, didDeliverNotification notification: NSUserNotification) {
-        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
-        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             center.removeDeliveredNotification(notification)
         }
     }
     
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true
     }
 }

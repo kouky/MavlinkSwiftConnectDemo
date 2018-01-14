@@ -77,6 +77,25 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		2781384D200B401F001A7EFD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27785EF91BBC14A700E1D097 /* AppDelegate.swift */,
+				279D1D671BC292C3003CB64E /* MavlinkController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2781384F200B4081001A7EFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27785F011BBC14D400E1D097 /* MainMenu.xib */,
+				27785EFB1BBC14B900E1D097 /* Assets.xcassets */,
+				27785EFC1BBC14B900E1D097 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		27AD8A321BBD542B00BC7555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,11 +108,12 @@
 		27B6CBDA1BBC12BA004184A5 = {
 			isa = PBXGroup;
 			children = (
-				27B6CBE51BBC12BA004184A5 /* Sources */,
-				27EE57481BBC142C0057960D /* Resources */,
+				2743453A1BEF27BB0056EE2E /* README.md */,
 				27785F0F1BBC1AC600E1D097 /* Config */,
 				27AD8A321BBD542B00BC7555 /* Frameworks */,
 				27B6CBE41BBC12BA004184A5 /* Products */,
+				2781384F200B4081001A7EFD /* Resources */,
+				2781384D200B401F001A7EFD /* Sources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,28 +123,6 @@
 				27B6CBE31BBC12BA004184A5 /* MavlinkSwiftConnectDemo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		27B6CBE51BBC12BA004184A5 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				2743453A1BEF27BB0056EE2E /* README.md */,
-				27785EF91BBC14A700E1D097 /* AppDelegate.swift */,
-				279D1D671BC292C3003CB64E /* MavlinkController.swift */,
-			);
-			name = Sources;
-			path = MavlinkSwiftConnectDemo;
-			sourceTree = "<group>";
-		};
-		27EE57481BBC142C0057960D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				27785F011BBC14D400E1D097 /* MainMenu.xib */,
-				27785EFB1BBC14B900E1D097 /* Assets.xcassets */,
-				27785EFC1BBC14B900E1D097 /* Info.plist */,
-			);
-			name = Resources;
-			path = MavlinkSwiftConnectDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +259,7 @@
 				SDKROOT = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -299,6 +298,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

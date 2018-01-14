@@ -22,7 +22,7 @@ If you don't have the [Carthage](https://github.com/Carthage/Carthage) dependenc
 
     brew install carthage
 
-Build and run the demo using Xcode 7 or above.
+Build and run the demo using Xcode 9.1+
 
 ## Notes when using application with Pixhawk
 
